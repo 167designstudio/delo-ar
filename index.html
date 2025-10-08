@@ -109,10 +109,18 @@
         <div class="divider"></div>
         <p class="price">20 000р.</p>
       </div>
-      <a rel="ar" href="YO_org.usdz" class="button">
+      <script type="text/javascript"> 
+ if( /iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
+document.write('<a rel="ar" href="YO_org.usdz" class="button">
         <img src="AR.png">
         Смотреть у себя
-      </a>
+      </a>');
+}
+ if( /android/i.test(navigator.userAgent) ) {
+document.write('<a href="intent://arvr.google.com/scene-viewer/1.0?file=YO.glb#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;" class="button"><img src="AR.png">
+        Смотреть у себя</a>');
+}
+        </script>
     </div>
   </div>
 </body>
