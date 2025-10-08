@@ -109,18 +109,28 @@
         <div class="divider"></div>
         <p class="price">20 000р.</p>
       </div>
-      <script type="text/javascript"> 
- if( /iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
-document.write('<a rel="ar" href="YO_org.usdz" class="button">
-        <img src="AR.png">
+     <script>
+  const ua = navigator.userAgent.toLowerCase();
+  let html = '';
+
+  if (/iphone|ipad|ipod/.test(ua)) {
+    html = `
+      <a rel="ar" href="YO_org.usdz" class="button">
+        <img src="AR.png" alt="" style="width:20px;height:20px;">
         Смотреть у себя
-      </a>');
-}
- if( /android/i.test(navigator.userAgent) ) {
-document.write('<a href="intent://arvr.google.com/scene-viewer/1.0?file=YO.glb#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;" class="button"><img src="AR.png">
-        Смотреть у себя</a>');
-}
-        </script>
+      </a>
+    `;
+  } else if (/android/.test(ua)) {
+    html = `
+      <a href="intent://arvr.google.com/scene-viewer/1.0?file=https://YOUR_SITE_PATH/YO.glb#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;" class="button">
+        <img src="AR.png" alt="" style="width:20px;height:20px;">
+        Смотреть у себя
+      </a>
+    `;
+  }
+
+  document.write(html);
+</script>
     </div>
   </div>
 </body>
